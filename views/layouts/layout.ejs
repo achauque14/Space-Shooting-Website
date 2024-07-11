@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/shared/navBar.css">
+    <link rel="stylesheet" href="/styles/shared/main.css">
+    <link rel="stylesheet" href="/styles/cart/cart.css">
+    <link href="https://unpkg.com/filepond@^4/dist/filepond.css" rel="stylesheet" />
+    <link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css" rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script defer src="https://unpkg.com/filepond@^4/dist/filepond.js"></script>
+    <script defer src="https://unpkg.com/filepond-plugin-file-encode/dist/filepond-plugin-file-encode.js"></script>
+    <script defer src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
+    <script defer src="https://unpkg.com/filepond-plugin-image-resize/dist/filepond-plugin-image-resize.js"></script>
+    <script defer src="/javascript/fileUpload.js"></script>
+    <script defer src="https://kit.fontawesome.com/e0d878eb1f.js" crossorigin="anonymous"></script>
+    <script src="https://www.paypal.com/sdk/js?client-id=ARaNej8yaFqnQQMqllPLiwnz7Du9pMDg2quSwqGgOlafXjdSPX2lHftuOLJVt5DJE5xoQMwFWrcn8VWO"></script>
+    <script src="/script.js" defer></script>
+
+    <title>KSDA</title>
+</head>
+<body>
+    <%- include('../partials/header.ejs')%>
+    <%- include('../partials/errorMessage.ejs')%>
+    <%- body %>
+    <%- include('../partials/footer.ejs')%>
+</body>
+</html>

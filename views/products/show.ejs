@@ -1,0 +1,29 @@
+<div class="product-view">
+    <h2 class="product-name"><%= product.name %></h2>
+    <div class="product-image-details">
+       <div class="product-image">
+            <img src="<%= product.productImagePath %>" alt="<%= product.name %>">
+        </div>
+        <div class="product-details">
+            <div class="product-detail">
+                <h3>Price</h3>
+                <p>€<%= product.price %></p>
+            </div>
+            <div class="product-detail">
+                <h3>type</h3>
+                <p><%= product.type %></p>
+            </div>
+            <div class="product-detail">
+                <h3>Description</h3>
+                <p><%= product.description %></p>
+            </div>
+            <div class="add-to-cart">
+                <form action="/cart/<%= product._id %>/add" method="post">
+                    <button type="submit">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>    
+</div>

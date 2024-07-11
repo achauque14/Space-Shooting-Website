@@ -1,0 +1,61 @@
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+.cart-title {
+    font-size: 28px;
+}
+
+.empty-cart-message {
+    margin-top: 20px;
+}
+
+
+.cart-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+
+.table-header {
+    padding: 10px;
+    text-align: left;
+}
+.cart-table td {
+    padding: 10px;
+    text-align: left;
+}
+
+.action-button {
+    color: white;
+    background-color: black;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.action-button:hover {
+    background-color:orangered
+}
+
+.table-footer {
+    text-align: right;
+    padding: 10px;
+}
+
+.table-footer strong {
+    font-size: 18px;
+}
+
+.continue-shopping {
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+}
+
+#paypal {
+    margin-top: 20px;
+    text-align: center;
+}

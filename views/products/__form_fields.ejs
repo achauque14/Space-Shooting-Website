@@ -1,0 +1,19 @@
+<div>
+    <div class="form_field">
+        <label for="name">name</label>
+        <input type="text" name="name" value= "<%= product.name %>">
+    </div>
+    <div class="form_field">
+        <label for="image">Image</label>
+        <input type="file" name="image" class="filepond">
+    </div>
+    <div class="form_field">
+        <label for="price">price</label>
+        <input type="number" name="price" value= "<%= product.price %>">
+    </div>
+    <div class="form_field">
+         <label for="description">description</label>
+        <textarea id="description" name="description"><%= product.description %></textarea>
+    </div>
+</div>
+    

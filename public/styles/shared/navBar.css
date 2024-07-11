@@ -1,0 +1,67 @@
+header {
+    text-align: center;
+    padding: 20px;
+    font-weight: bold;
+}
+
+.logo {
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px; 
+}
+
+.website-title {
+    font-size: 60px; 
+    font-weight: bold;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode';
+    letter-spacing: 2px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    padding: 10px 40px;
+    position: sticky;
+    top: 0;
+    left: 0;
+}
+
+.nav-list {
+    list-style-type: none;
+    padding: 0 20px ;
+    margin: 20px;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-list .link-item {
+    display: inline;
+}
+
+.navbar-item {
+    text-decoration: none;
+    color: orange;
+    font-size: 1.5em;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode';
+    border: thin whitesmoke groove;
+    border-radius: 10px;
+    font-weight: bolder;
+    padding: 8px;
+    margin: 10px;
+}
+
+.nav-list a:hover, .nav-list a:active {
+    color: white;
+    background-color: black ;
+    border-radius: 0;
+}
+
+
+.logo img {
+    width: 150px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    cursor: pointer;
+}
+

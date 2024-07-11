@@ -1,0 +1,47 @@
+<div class="container">
+    <h3 class="cart-title">Your Cart</h3>
+
+    <% if (cart.length === 0) { %>
+        <p class="empty-cart-message">Your cart is empty.</p>
+    <% } else { %>
+        <table class="cart-table">
+            <thead>
+                <tr>
+                    <th class="table-header">Name</th>
+                    <th class="table-header">Price</th>
+                    <th class="table-header">Quantity</th>
+                    <th class="table-header">Subtotal</th>
+                    <th class="table-header">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% cart.forEach(product => { %>
+                    <tr>
+                        <td> <a href="/products/<%= product.id %>"><%= product.name %></a></td>
+                        <td>€<%= product.price ? product.price.toFixed(2) : '0' %></td>
+                        <td><%= product.quantity ? product.quantity : '0' %></td>
+                        <td>€<%= (product.price && product.quantity) ? (product.price * product.quantity).toFixed(2) : '0' %></td>
+                        <td>
+                            <form action="/cart/<%= product._id %>/increase" method="post">
+                                <button type="submit" class="action-button">+</button>
+                            </form>
+                            <form action="/cart/<%= product._id %>/decrease" method="post">
+                                <button type="submit" class="action-button">-</button>
+                            </form>
+                            <form action="/cart/<%= product._id %>/remove" method="post">
+                                <button type="submit" class="action-button">Remove</button>
+                            </form>
+                        </td>
+                    </tr>
+                <% }) %>
+                <tr>
+                    <td colspan="3" class="table-footer"><strong>Total:</strong></td>
+                    <td colspan="2" class="table-footer"><strong>€<%= total ? total.toFixed(2) : '0.00' %></strong></td>
+                </tr>
+            </tbody>
+        </table>
+    <% } %>
+
+    <a href="/products" class="continue-shopping">Continue Shopping</a>
+    <div id="paypal"></div>
+</div>
