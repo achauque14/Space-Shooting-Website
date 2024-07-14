@@ -12,9 +12,9 @@
    ```sh
    npm install
 
-3. start servers
+3. start servers and oopen browser
 
 ```sh
 npm run dev
 ```
-
+open localhost:3000 on your browser
