@@ -1,21 +1,18 @@
 paypal
   .Buttons({
     createOrder: function () {
-      return fetch("/create-order", {
+      return fetch("cart/create-order", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          items: [
-            {
-              productId: 1,
-              quantity: 2,
-            },
-            { productId: 2, quantity: 3 },
-          ],
-        }),
-      })
+          items: cartItems.map(item => ({
+              productId: item.productId,
+              quantity: item.quantity
+          })),
+      }),
+  })
         .then(res => {
           if (res.ok) return res.json()
           return res.json().then(json => Promise.reject(json))

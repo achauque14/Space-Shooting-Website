@@ -33,57 +33,70 @@ router.get('/', async (req, res) => {
 router.get('/pay', (req, res) => {
     res.render('cart/pay', {
         paypalClientId: process.env.PAYPAL_CLIENT_ID,
+        cartItems: JSON.stringify(cart)
     });
 });
 
 router.post('/create-order', async (req, res) => {
-    try {
-        const productIds = req.body.items.map(item => item.productId);
-        const products = await Product.find({ _id: { $in: productIds } });
+  try {
+    const items = req.body.items;
 
-        const total = req.body.items.reduce((sum, item) => {
-            const product = products.find(p => p._id.toString() === item.productId);
-            return sum + product.price * item.quantity;
-        }, 0);
-
-        const request = new paypal.orders.OrdersCreateRequest();
-        request.prefer('return=representation');
-        request.requestBody({
-            intent: 'CAPTURE',
-            purchase_units: [
-                {
-                    amount: {
-                        currency_code: 'EUR',
-                        value: total.toFixed(2),
-                        breakdown: {
-                            item_total: {
-                                currency_code: 'EUR',
-                                value: total.toFixed(2)
-                            }
-                        }
-                    },
-                    items: req.body.items.map(item => {
-                        const product = products.find(p => p._id.toString() === item.productId);
-                        return {
-                            name: product.name,
-                            unit_amount: {
-                                currency_code: 'EUR',
-                                value: product.price.toFixed(2)
-                            },
-                            quantity: item.quantity
-                        };
-                    })
-                }
-            ]
-        });
-
-        const order = await paypalClient.execute(request);
-        console.log(order);
-        res.json({ id: order.result.id });
-    } catch (e) {
-        console.error(e);
-        res.status(500).send('Server Error');
+    if (!items || !Array.isArray(items)) {
+      return res.status(400).json({ message: 'Invalid cart data' });
     }
+
+    const productIds = items.map(item => item.productId);
+    const products = await Product.find({ _id: { $in: productIds } });
+
+    let total = 0;
+
+    const paypalItems = items.map(item => {
+      const product = products.find(
+        p => p._id.toString() === item.productId
+      );
+
+      if (!product) {
+        throw new Error('Product not found');
+      }
+
+      total += product.price * item.quantity;
+
+      return {
+        name: product.name,
+        unit_amount: {
+          currency_code: 'EUR',
+          value: product.price.toFixed(2)
+        },
+        quantity: item.quantity
+      };
+    });
+
+    const request = new paypal.orders.OrdersCreateRequest();
+    request.prefer('return=representation');
+    request.requestBody({
+      intent: 'CAPTURE',
+      purchase_units: [{
+        amount: {
+          currency_code: 'EUR',
+          value: total.toFixed(2),
+          breakdown: {
+            item_total: {
+              currency_code: 'EUR',
+              value: total.toFixed(2)
+            }
+          }
+        },
+        items: paypalItems
+      }]
+    });
+
+    const order = await paypalClient.execute(request);
+    res.json({ id: order.result.id });
+
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: 'Order creation failed' });
+  }
 });
 
 router.post('/:id/add', async (req, res) => {

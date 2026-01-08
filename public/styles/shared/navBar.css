@@ -1,3 +1,5 @@
+@import url(root-fonts.css);
+
 header {
     text-align: center;
     padding: 20px;
@@ -38,24 +40,23 @@ header {
     display: inline;
 }
 
-.navbar-item {
+.navbar-item{
     text-decoration: none;
+    font-family: Lab-Grotesk;
+    font-size: var(--h3-font-size);
     color: orange;
-    font-size: 1.5em;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode';
-    border: thin whitesmoke groove;
-    border-radius: 10px;
-    font-weight: bolder;
-    padding: 8px;
-    margin: 10px;
 }
 
-.nav-list a:hover, .nav-list a:active {
+.nav-list a:hover{
     color: white;
-    background-color: black ;
-    border-radius: 0;
+    border:thin white solid;
+    padding: 15px;
+    border-radius: 20px;
 }
 
+.nav-list a:active{
+    color: red;
+}
 
 .logo img {
     width: 150px;

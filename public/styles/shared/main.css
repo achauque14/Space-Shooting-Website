@@ -1,3 +1,5 @@
+@import url(root-fonts.css);
+
 *{
     color: rgb(255, 255, 255);
     font-family: "Archivo", sans-serif;
@@ -10,7 +12,30 @@ body{
 }
 
 h1{
-    font-size: 2.5rem;
+    font-size: var(--h1-font-size);
+    font-weight: var(--h1-font-weight);
+    font-family: Supply Sans;
+}
+h2{
+    font-size: var(--h2-font-size);
+    font-weight: var(--h2-font-weight);
+    font-family: Supply Sans;
+}
+h3{
+    font-size: var(--h3-font-size);
+    font-weight: var(--h3-font-weight);
+    font-family: Supply Sans;
+}
+h4{
+    font-size: var(--h4-font-size);
+    font-weight: var(--h4-font-weight);
+    font-family: Supply Sans;
+}
+
+p{
+    font-size: var(--p-font-size);
+    font-weight: var(--p-font-weight);
+    font-family: Lab-Grotesk;
 }
 
 button:hover{
@@ -20,7 +45,6 @@ button:hover{
 
 h1, h2, h3, h4, h5{
     text-align: center;
-    padding-bottom: 40px;
 }
 
 img{
@@ -76,6 +100,7 @@ h2{
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
+    justify-content: center;
 }
 
 .product-item {
@@ -84,10 +109,10 @@ h2{
     align-items: center; 
     width: 200px;
     height: 350px; 
-    border: 1px solid #ccc;
     border-radius: 8px; 
     padding: 10px; 
     margin: 10px; 
+    background-color: #1c1c1c;
 }
 
 .product-detail {
@@ -192,20 +217,19 @@ h2{
     width: 80%;
     margin: 0 auto;
     padding: 20px;
-    border: 1px solid #ddd; 
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .product-name {
     text-align: center;
-    font-size: 28px;
+    font-size: var(--h2-font-size);
+    font-weight: var(--h2-font-weight);
     margin-bottom: 20px;
 }
 
 .product-image-details {
     display: flex;
     gap: 20px; 
+    align-items: center;
 }
 
 .product-image {
@@ -225,7 +249,6 @@ h2{
 
 .product-details {
     flex: 1; 
-    background-color: #fff;
     border-radius: 4px;
     padding: 20px;
 }
@@ -236,13 +259,15 @@ h2{
 
 .product-detail h3{
     margin-bottom: 10px;
-    font-size: 20px;
-    color: #333;
+    font-size: var(--h3-font-size);
+    font-weight:var(--h3-font-weight);
+    color: orange;
 }
 
 .product-detail p {
-    font-size: 16px;
-    color: #555;
+    font-size: 20px;
+    text-align: center;
+    margin: 20px 10px;
 }
 
 .add-to-cart button {
@@ -265,5 +290,21 @@ footer {
     bottom: 0;
     width: 100%;
     color: white;
+    text-align: center;
+  }
+
+  form.add-product-form{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+  }
+
+  div.form_field{
+    margin: 10px;
+  }
+
+  .form_field input, textarea{
+    color: #1c1c1c;
     text-align: center;
   }

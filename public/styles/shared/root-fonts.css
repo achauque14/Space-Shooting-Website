@@ -1,0 +1,34 @@
+@font-face {
+    font-family: Supply Mono;
+    src: url('../fonts/PPSupplyMono-Regular.otf');
+    font-style: normal;
+    font-weight: 100, 300, 400, 500, 600;
+    font-stretch: normal;
+}
+@font-face {
+    font-family: Supply Sans;
+    src: url('../fonts/PPSupplySans-Regular.otf');
+    font-style: normal;
+    font-weight: 100, 300, 400, 500, 600;
+    font-stretch: normal;
+}
+@font-face {
+    font-family: Lab-Grotesk;
+    src: url('../fonts/lab-grotesk.otf');
+    font-style: normal;
+    font-weight: 100, 300, 400, 500, 600;
+    font-stretch: normal;
+}
+:root{
+    --line-height: 1.3;
+    --h1-font-size: 66px;
+    --h2-font-size: 28px;
+    --h3-font-size: 23px;
+    --h4-font-size: 18px;
+    --p-font-size:20px;
+    --h1-font-weight: 700;
+    --h2-font-weight: 500;
+    --h3-font-weight: 500;
+    --p-font-weight: 400;
+    --p-color: #eaeaea;
+}
